@@ -1,0 +1,261 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+@keyframes hedgyMovement{
+    0%{
+        background-image: url(./img/hedgy1.png);
+    }25%{
+        background-image: url(./img/hedgy2.png);
+    }50%{
+        background-image: url(./img/hedgy3.png);
+    }75%{
+        background-image: url(./img/hedgy4.png);
+    }100%{
+        background-image: url(./img/hedgy1.png);
+    }
+}
+
+@keyframes rotateSky{
+    0%{
+        transform: rotate(0deg);
+    }10%{
+        transform: rotate(0deg);
+    }20%{
+        transform: rotate(0deg);
+    }30%{
+        transform: rotate(0deg);
+    }40%{
+        transform: rotate(0deg);
+    }50%{
+        transform: rotate(180deg);
+    }60%{
+        transform: rotate(180deg);
+    }70%{
+        transform: rotate(180deg);
+    }80%{
+        transform: rotate(180deg);
+    }90%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateMoonSun{
+    from{
+        transform: rotate(-85deg);
+    }to{
+        transform: rotate(275deg);
+    }
+}
+@keyframes nightCloudMovingLeft{
+    0%{
+        transform: translateX(-5%);
+    }50%{
+        transform: translateX(35%);
+    }100%{
+        transform: translateX(-5%);
+    }
+}
+@keyframes nightCloudMovingRight{
+    0%{
+        transform: translateX(5%);
+    }50%{
+        transform: translateX(-35%);
+    }100%{
+        transform: translateX(5%);
+    }
+}
+@keyframes dayCloudMovingLeft{
+    0%{
+        transform: translateX(-5%);
+        opacity: 0;
+    }50%{
+        transform: translateX(35%);
+        opacity: 1;
+    }100%{
+        transform: translateX(-5%);
+        opacity: 0;
+    }
+}
+@keyframes dayCloudMovingRight{
+    0%{
+        transform: translateX(5%);
+        opacity: 0;
+    }50%{
+        transform: translateX(-35%);
+        opacity: 1;
+    }100%{
+        transform: translateX(5%);
+        opacity: 0;
+    }
+}
+
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    background-color: white;
+}
+.loadingPage{
+    height: 143.5vh;
+    grid-template-rows: repeat(23, 1fr);
+}
+.skyBG{
+    grid-column: 2 / span 10;
+    grid-row: 4 / span 9;
+}
+.skyBackground{
+    width: 100%;
+    animation: rotateSky 30s 0s infinite linear both;
+}
+.lineSky{
+    grid-column: 2 / span 10;
+    grid-row: 4 / span 9;
+    z-index: 1;
+}
+.lineSkyBG{
+    width: 100%;
+}
+.moonSunBG{
+    grid-column: 2 / span 10;
+    grid-row: 4 / span 9;
+    z-index: 1;
+}
+.moonSun{
+    width: 100%;
+    animation: rotateMoonSun 30s 0s infinite linear both;
+}
+.cloudBox{
+    grid-column: 2 / span 10;
+    grid-row: 4 / span 20;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    clip-path: circle(50% at 50% 50%);
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+.nightCloudMovingLeft{
+    animation: nightCloudMovingLeft 60s 0s infinite linear both;
+}
+.nightCloudMovingRight{
+    animation: nightCloudMovingRight 60s 0s infinite linear both;
+}
+.dayCloudMovingLeft{
+    animation: dayCloudMovingLeft 60s 0s infinite linear both;
+}
+.dayCloudMovingRight{
+    animation: dayCloudMovingRight 60s 0s infinite linear both;
+}
+.dayCloud1{
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 2;
+    width: 100%;
+}
+.dayCloud2{
+    grid-column: 8 / span 3;
+    grid-row: 3 / span 2;
+    width: 100%;
+}
+.nightCloud1{
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 2;
+    width: 100%;
+
+}
+.nightCloud2{
+    grid-column: 8 / span 3;
+    grid-row: 3 / span 2;
+    width: 100%;
+}
+.lineDesk{
+    grid-column: 1 / span 12;
+    grid-row: 13 / span 1;
+    background-image: url(./img/lineDesk.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-top: 1.5%;
+    background-color: white;
+    z-index: 1;
+}
+.desk{
+    grid-column: 1 / span 12;
+    grid-row: 14 / span 10;
+    background-color: white;
+    z-index: 1;
+}
+.book{
+    grid-column: 6 / span 2;
+    grid-row: 13 / span 3;
+    background-image: url(./img/book.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+.hedgy{
+    grid-column: 5 / span 4;
+    grid-row: 7 / span 9;
+    background-image: url(./img/hedgy1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    margin-bottom: 1.5%;
+    z-index: 1;
+
+    animation: hedgyMovement 1.5s 0s infinite step-end both;
+}
+
+.recommendPage{
+    height: 100vh;
+    grid-template-rows: repeat(16, 1fr);
+    z-index: 1;
+}
+/* X-Small devices (portrait phones, less than 576px)
+    Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .container{
+        width: 540px;      
+    }
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .container{
+        width: 720px;
+    }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+    .container{
+        width: 960px;
+    }
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .container{
+        width: 1140px;
+    }
+ }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+    .container{
+        width: 1320px;
+    }
+ }
