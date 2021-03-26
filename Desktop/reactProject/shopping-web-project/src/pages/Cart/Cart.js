@@ -7,7 +7,7 @@ import './Cart.css';
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
   const subtotalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
-  const shippingPrice = 50;
+  const shippingPrice = ((subtotalPrice==0) ? 0 : 50);
   const totalPrice = subtotalPrice + shippingPrice;
   return (
     <div className="cart-page container">
