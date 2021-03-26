@@ -35,6 +35,7 @@ export default class App extends Component {
   render() {
     const { data } = this.state;
     return (
+
       <CartProvider>
         <Router>
           <Navbar />

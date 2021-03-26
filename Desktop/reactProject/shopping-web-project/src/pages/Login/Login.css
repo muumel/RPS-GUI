@@ -71,3 +71,9 @@
 #boxCardLogin .email, #boxCardLogin .password{
     color:#4b3834;
 }
+#non-active-login{
+    display:none;
+}
+#non-active-signup{
+    display:none;
+}
