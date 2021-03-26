@@ -1,12 +1,13 @@
-import React, { useEffect }from 'react';
-import { useState } from 'react';
+import React, { useEffect } from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
 import $ from 'jquery';
+import {CartContext} from '../CartContext';
+import {useContext} from 'react';
 
 
-const Navbar = (props) => {
-    console.log(props);
+const Navbar = () => {
+    const [cart, setCart] = useContext(CartContext);
     function animation() {
         var tabsNewAnim = $('#navbarSupportedContent');
         var activeItemNewAnim = tabsNewAnim.find('.active');
@@ -117,7 +118,7 @@ const Navbar = (props) => {
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/shopping-cart" exact>
-                            <i className="fas fa-shopping-cart"><span class="num-product-in-cart" ></span></i> <span className="hiddenText">Shopping Cart</span>
+                            <i className="fas fa-shopping-cart"><span class="num-product-in-cart" >{cart.length}</span></i> <span className="hiddenText">Shopping Cart</span>
                         </NavLink>
                     </li>
                     {/*<button onClick={() => {setNumProCart(numProCart+1)}}>

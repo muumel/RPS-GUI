@@ -15,59 +15,61 @@ import Newest from "./pages/Newest/Newest";
 import Login from "./pages/Login/Login";
 import Search from "./pages/Search/Search";
 import Navbar from "./components/Navbar/Navbar";
+import { CartProvider } from "./components/CartContext";
 
 export default class App extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      data : null
-    }
+      data: null,
+    };
   }
   handleCallback = (childData) => {
-    this.setState({data: childData})
-  }
-  
-  addToCart(amount){
+    this.setState({ data: childData });
+  };
+
+  addToCart(amount) {
     console.log(amount);
   }
 
   render() {
-    const {data} = this.state;
+    const { data } = this.state;
     return (
-      <Router>
-        <Navbar />
-        <main>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/shop" exact>
-              <Shop/>
-            </Route>
-            <Route path="/about" exact>
-              <About />
-            </Route>
-            <Route path="/shopping-cart" exact>
-              <Cart />
-            </Route>
-            <Route path="/newest" exact>
-              <Shop />
-            </Route>
-            <Route path="/trends" exact>
-              <Shop />
-            </Route>
-            <Route path="/search" exact>
-              <Search />
-            </Route>
-            <Route path="/login" exact>
-              <Login />
-            </Route>
+      <CartProvider>
+        <Router>
+          <Navbar />
+          <main>
+            <Switch>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+              <Route path="/shop" exact>
+                <Shop />
+              </Route>
+              <Route path="/about" exact>
+                <About />
+              </Route>
+              <Route path="/shopping-cart" exact>
+                <Cart />
+              </Route>
+              <Route path="/newest" exact>
+                <Shop />
+              </Route>
+              <Route path="/trends" exact>
+                <Shop />
+              </Route>
+              <Route path="/search" exact>
+                <Search />
+              </Route>
+              <Route path="/login" exact>
+                <Login />
+              </Route>
 
-            <Redirect to="/" />
-          </Switch>
-        </main>
-      </Router>
-    )
+              <Redirect to="/" />
+            </Switch>
+          </main>
+        </Router>
+      </CartProvider>
+    );
   }
 }
