@@ -1,105 +1,73 @@
-.form{
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito';
+}
+#boxCardLogin{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#boxCardLogin article{
+    background-color: #e8e8e4;
+    padding: 3rem;
+}
+#boxCardLogin article h2{
+    font-size: calc(1.5rem + 1vw);
+    font-weight: 800;
+    margin-bottom: 1.3em;
+    text-align: center;
+}
+#boxCardLogin article form{
+    width: 48vmin;
+}
+.email, .password{
+    display: block;
     width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background-color: rgba(0, 0, 0, .2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 102;
+    padding: .5em 0;
+    font-size: calc(0.5rem + 1vw);
+    border: none;
+    border-bottom: 1px solid #4b3834;
 }
-form{
-    margin-top: 20px;
-}
-.login-form, .sign-up-form{
-    width: 420px;
-    padding: 20px 10px;
-    background-color: #ffffff;
-    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 5px;
+.input-container{
     position: relative;
 }
-.login-form form, .sign-up-form form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
+.input-container + .input-container{
+    margin-top: 3em;
 }
-.login-form strong, .sign-up-form strong{
-    color: #272727;
-    font-size: 1.8rem;
-    margin: -22px 7px 7px 7px;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    font-weight: 600;
-    display: block;
-}
-.login-form input, .sign-up-form input{
-    width: 90%;
-    height: 45px;
-    margin: .5rem 0px;
-    padding: 0px 10px;
-    border: 1px solid rgba(0, 0, 0, .1);
-    outline: none;
-    border-radius: 7px;
-}
-.login-form input::placeholder, .sign-up-form input::placeholder{
-    color: rgba(0, 0, 0, .5);
-}
-.login-form input[type="submit"], .sign-up-form input[type="submit"]{
-    background-color: #0b9d8a;
-    color: #fff;
-    border: none;
-    outline: none;
-    text-transform: uppercase;
-    margin-top: 10px;
-    border-radius: 3px;
-    box-shadow: 2px 2px 30px rgba(0, 0, 0, .1);
-}
-.form-btns{
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-.form-btns a{
-    color: #4d4d4d;
-    font-size: .9rem;
-}
-.sign-up-btn{
-    border-bottom: 1px solid #868686;
-    line-height: 16px;
-}
-.form-cancel{
+.input-container label{
     position: absolute;
-    right: 20px;
-    top: 10px;
-    color: #868686;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .3s transform ease-in-out;
 }
-.sign-up-form{
-    display: none;
+.reset-pwd{
+    display: block;
+    text-align: right;
+    margin-top: 1.5em;
 }
-.login-active, .login-active .login-form{
-    display: flex;
-    animation: fade .3s;
+.btn{
+    display: block;
+    margin: 1.5em auto;
+    background: #fcd5ce;
+    font-size: calc(0.5rem + 1vw);
+    padding: .3em 5em;
+    border-radius: 3em;
 }
-.sign-up-active, .sign-up-active .sign-up-form{
-    display: flex;
-    animation: fade .3s;
+#boxCardLogin article p{
+    text-align: center;
+    margin-top: 3em;
 }
-@keyframes fade{
-    0%{
-        opacity: 0;
-    }100%{
-        opacity: 1;
-    }
+.focused > label{
+    transform: translateY(-200%);
+}
+#boxCardLogin .email, #boxCardLogin .password{
+    color:#4b3834;
 }
