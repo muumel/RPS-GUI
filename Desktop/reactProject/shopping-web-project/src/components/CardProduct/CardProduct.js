@@ -34,7 +34,7 @@ export const CardProduct = (props) => {
                     <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>
                 </div>
-                <h4 class="price">{props.price}</h4>
+                <h4 class="price">{props.price} &#3647;</h4>
             </div>
         </div>
     )

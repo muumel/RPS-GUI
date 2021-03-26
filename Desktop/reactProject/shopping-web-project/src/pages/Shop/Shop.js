@@ -5,9 +5,10 @@ import './Shop.css';
 
 const Shop = () => {
     const database = [
-        {title: "Science G.5", author: "Mc Kallen", price: "20 Baht", id: "1"},
-        {title: "Math G.4", author: "Joey", price: "25 Baht", id: "2"},
-        {title: "Art G.1", author: "Gorche", price: "30 Baht", id: "3"},
+        {title: "Science G.5", author: "Mc Kallen", price: "20", id: "1", qty: "0"},
+        {title: "Math G.4", author: "Joey", price: "25", id: "2", qty:"0"},
+        {title: "Art G.1", author: "Gorche", price: "30", id: "3", qty:"0"},
+        {title: "Music G.6", author: "Gorche", price: "20", id: "4", qty:"0"},
     ]
     return (
         <div className="bigContainer">
@@ -15,7 +16,7 @@ const Shop = () => {
             <div className="product-center container">
                 {
                     database.map(item => (
-                        <CardProduct title={item.title} author={item.author} price={item.price} key={item.id} />
+                        <CardProduct title={item.title} author={item.author} price={item.price} id={item.id} qty={item.qty} />
                     ))
                 }
             
