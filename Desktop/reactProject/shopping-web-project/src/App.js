@@ -53,10 +53,10 @@ export default class App extends Component {
                 <Cart />
               </Route>
               <Route path="/newest" exact>
-                <Shop />
+                <Newest />
               </Route>
               <Route path="/trends" exact>
-                <Shop />
+                <Trends />
               </Route>
               <Route path="/search" exact>
                 <Search />
