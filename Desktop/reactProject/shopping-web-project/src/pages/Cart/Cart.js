@@ -6,6 +6,9 @@ import './Cart.css';
 
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
+  const subtotalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+  const shippingPrice = 50;
+  const totalPrice = subtotalPrice + shippingPrice;
   return (
     <div className="cart-page container">
       <table>
@@ -30,15 +33,15 @@ const Cart = () => {
           <table>
                 <tr>
                     <td>Subtotal</td>
-                    <td>0 &#3647;</td>
+                    <td>{subtotalPrice} &#3647;</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
-                    <td>50 &#3647;</td>
+                    <td>{shippingPrice} &#3647;</td>
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>0 &#3647;</td>
+                    <td>{totalPrice} &#3647;</td>
                 </tr>
           </table>
       </div>
