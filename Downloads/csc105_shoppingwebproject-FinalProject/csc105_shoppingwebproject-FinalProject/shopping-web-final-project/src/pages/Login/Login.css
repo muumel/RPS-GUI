@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito';
+}
+#boxCardLogin{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#boxCardLogin article{
+    background-color: #e8e8e4;
+    padding: 3rem;
+}
+#boxCardLogin article h2{
+    font-size: calc(1.5rem + 1vw);
+    font-weight: 800;
+    margin-bottom: 1.3em;
+    text-align: center;
+}
+#boxCardLogin article form{
+    width: 48vmin;
+}
+.email, .password{
+    display: block;
+    width: 100%;
+    padding: .5em 0;
+    font-size: calc(0.5rem + 1vw);
+    border: none;
+    border-bottom: 1px solid #4b3834;
+}
+.input-container{
+    position: relative;
+}
+.input-container + .input-container{
+    margin-top: 3em;
+}
+.input-container label{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .3s transform ease-in-out;
+}
+.reset-pwd{
+    display: block;
+    text-align: right;
+    margin-top: 1.5em;
+}
+.btn{
+    display: block;
+    margin: 1.5em auto;
+    background: #fcd5ce;
+    font-size: calc(0.5rem + 1vw);
+    padding: .3em 5em;
+    border-radius: 3em;
+}
+#boxCardLogin article p{
+    text-align: center;
+    margin-top: 3em;
+}
+.focused > label{
+    transform: translateY(-200%);
+}
+#boxCardLogin .email, #boxCardLogin .password{
+    color:#4b3834;
+}
+#non-active-login{
+    display:none;
+}
+#non-active-signup{
+    display:none;
+}
