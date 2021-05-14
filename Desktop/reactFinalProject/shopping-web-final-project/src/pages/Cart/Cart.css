@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+.cart-page{
+    margin: 80px auto;
+}
+table{
+    width: 100%;
+}
+th{
+    text-align: left;
+    padding: 5px;
+    background-color: #d8e2dc;
+    font-weight: 700;
+}
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+    margin: 80px auto;
+}
+.total-price > table{
+    border-top: 3px solid #d8e2dc;
+    width:100;
+    max-width: 400px;
+}
+td:last-child,th:last-child{
+    text-align:right;
+}

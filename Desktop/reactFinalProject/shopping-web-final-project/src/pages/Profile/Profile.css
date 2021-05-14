@@ -1,0 +1,32 @@
+.buttonProfilePage{
+    display: block;
+    margin: 1.2em auto;
+    background: #d8e2dc;
+    font-size: calc(0.5rem + 1vw);
+    padding: .3em 5em;
+    border-radius: 3em;
+}
+.buttonLogoutPage{
+    display: block;
+    margin: 1.2em auto;
+    background: #f1d27a;
+    font-size: calc(0.5rem + 1vw);
+    padding: .3em 5em;
+    border-radius: 3em;
+}
+.buttonLogoutPage:hover{
+    background: #fa713b;
+}
+.buttonProfilePage:hover{
+    background: #c4d1c9;
+}
+.editAddIcon{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 3rem 2.5rem;
+}
+.editAddIcon > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
