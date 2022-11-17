@@ -79,6 +79,7 @@ entry_1 = Entry(
     fg="#000716",
     highlightthickness=0
 )
+entry_1.pack()
 entry_1.place(
     x=200.7352352142334,
     y=198.34011840820312,
