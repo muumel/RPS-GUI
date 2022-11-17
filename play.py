@@ -1,52 +1,71 @@
 import random
+
 import math
+from detection import detect_from_img
+
 
 def play():
-    user = input("What's your choice? 'r' for rock, 'p' for paper, 's' for scissors\n")
-    user = user.lower()
+    # get input from yolov5
+    # rps = detect_from_img()
+    # player_one = rps.user1
+    # player_two = rps.user2
+    player_one = random.choice(['r', 'p', 's'])
+    player_two = random.choice(['r', 'p', 's'])
 
-    computer = random.choice(['r', 'p', 's'])
-
-    if user == computer:
-        return (0, user, computer)
+    if player_one == player_two:
+        return 0, player_one, player_two
 
     # r > s, s > p, p > r
-    if is_win(user, computer):
-        return (1, user, computer)
+    if is_win(player_one, player_two):
+        return 1, player_one, player_two
 
-    return (-1, user, computer)
+    return -1, player_one, player_two
 
-def is_win(player, opponent):
-    # return true is the player beats the opponent
+
+def is_win(player_one, player_two):
     # winning conditions: r > s, s > p, p > r
-    if (player == 'r' and opponent == 's') or (player == 's' and opponent == 'p') or (player == 'p' and opponent == 'r'):
-        return True
-    return False
+    if (player_one == 'r' and player_two == 's') or (player_one == 's' and player_two == 'p') or (
+            player_one == 'p' and player_two == 'r'):
+        return True  # Player1 is winner in this turn
+    return False  # Player2 is winner in this turn
 
-def play_best_of(n):
-    # play against the computer until someone wins best of n games
-    # to win, you must win ceil(n/2) games (ie 2/3, 3/5, 4/7)
-    player_wins = 0
-    computer_wins = 0
-    wins_necessary = math.ceil(n/2)
-    while player_wins < wins_necessary and computer_wins < wins_necessary:
-        result, user, computer = play()
+
+def play_best_of(latest_score_one, latest_score_two):
+    n = 3  # n = number of turn
+    player_one_score = latest_score_one
+    player_two_score = latest_score_two
+    wins_necessary = math.ceil(n / 2)
+    is_end = False
+    success = False
+
+    if player_one_score < wins_necessary and player_two_score < wins_necessary:
+        result, player_one, player_two = play()
+        success = True
         # tie
         if result == 0:
-            print('It is a tie. You and the computer have both chosen {}. \n'.format(user))
-        # you win
+            print('It is a tie. Player1 and the Player2 have both chosen {}. \n'.format(player_one))
+        # Player1 is winner
         elif result == 1:
-            player_wins += 1
-            print('You chose {} and the computer chose {}. You won!\n'.format(user, computer))
+            player_one_score += 1
+            print('Player1 chose {} and the Player2 chose {}. Player1 won!\n'.format(player_one, player_two))
+        # Player2 is winner
         else:
-            computer_wins += 1
-            print('You chose {} and the computer chose {}. You lost :(\n'.format(user, computer))
+            player_two_score += 1
+            print('Player1 chose {} and the Player2 chose {}. Player2 win :(\n'.format(player_one, player_two))
 
-    if player_wins > computer_wins:
-        print('You have won the best of {} games! What a champ :D'.format(n))
+        # someone wins best of n games which is ceil(n/2) games (ie 2/3, 3/5, 4/7)
+        if (player_one_score == wins_necessary) or (player_two_score == wins_necessary):
+            if (player_one_score > player_two_score) or (player_two_score > player_one_score):
+                is_end = True  # There is the winner in this game
+
+        # return score
+        print("is_end: {} \nplayer_one_score: {} \nplayer_two_score: {} \n".format(is_end, player_one_score,
+                                                                                   player_two_score))
+        return success, is_end, player_one_score, player_two_score
     else:
-        print('Unfortunately, the computer has won the best of {} games. Better luck next time!'.format(n))
+        return success, 'Something wrong! Pls, try again'
 
 
 if __name__ == '__main__':
-    play_best_of(3) # 2
+    # get latest score from GUI
+    play_best_of(0, 0)

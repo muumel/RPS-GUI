@@ -1,5 +1,3 @@
-import string
-
 import yolov5
 import pyscreenshot as screenshot
 from tkinter import *
@@ -64,17 +62,15 @@ def screenShot():
     # save image file
     img.save("yolov5/screenshot/screenshot.jpg")
 
-# def handler(e):
-# Open camera
-# Screenshot with countdown
-# Play rps
-# If error --> redo
-# Return winner
-
 
 if __name__ == "__main__":
     openCamera()
     countdown(5)
     screenShot()
 
-    # play_best_of(3)  # 2
+# To do list:
+#   Open camera
+#   Screenshot with countdown
+#   Play rps
+#   If error --> redo
+#   Return winner
