@@ -79,7 +79,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command= playagain,
+    command= newgame,
     relief="flat"
 )
 button_1.place(
@@ -95,7 +95,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command= newgame,
+    command= playagain,
     relief="flat"
 )
 button_2.place(
