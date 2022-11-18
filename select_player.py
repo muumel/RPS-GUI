@@ -29,6 +29,8 @@ class SelectPlayerScreen(BaseWin):
             self.player1_var.set('')
             self.player2_var.set('')
             tkinter.messagebox.showinfo('Error', "Please don't use the same name")
+        elif player1 == ('') or player2 == (''):
+            tkinter.messagebox.showinfo("Error", "Please fill all the name")
         else:
             print("ready")
             self.destroy()
